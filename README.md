@@ -68,6 +68,6 @@ Blog Image: [DuckDuckGo Search](duckduckgo.com)
 
 Project Planning: [Trello](https://trello.com/b/fzKTisxp/project-share-short-stories)
 
-Component Hierarchy Diagram: [Lucid App](https://lucid.app/lucidchart/d7b3638e-dad9-4270-b9db-3bd74cfd75ff/edit?page=0_0&invitationId=inv_2a8e021b-8016-4002-b4d4-fdfcf5dacd0c#)
+Component Hierarchy Diagram: [Lucid App](https://lucid.app/lucidchart/d7b3638e-dad9-4270-b9db-3bd74cfd75ff/edit?invitationId=inv_2a8e021b-8016-4002-b4d4-fdfcf5dacd0c&page=0_0#)
 
 ERD: [DrawIO](https://app.diagrams.net/#)
