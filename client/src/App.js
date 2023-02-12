@@ -1,33 +1,37 @@
-const express = require('express')
-const cors = require('cors')
-const logger = require('morgan')
+import { useState, useEffect } from 'react'
+import axios from 'axios'
+import './App.css'
+import StoryForm from './components/StoryForm'
+import story from 'story'
+const App = () => {
+  const [stories, setStories] = useState([])
 
-const commentController = require('./controllers/commentController')
-const storyController = require('./controllers/storyController')
+  const getStoryForm = async () => {
+    try {
+      let res = await axios.get('http://localhost:3001/stories')
+      console.log(res.data)
+      setStories(res.data)
+    } catch (err) {
+      console.log(err)
+    }
+  }
 
-const PORT = process.env.PORT || 3001
+  useEffect(() => {
+    getStoryForm()
+  }, [])
 
-const app = express()
+  return (
+    <div>
+      <StoryForm getStoryForm={getStoryForm} />
+      <h1>User Name {story.userName}</h1>
+      {/* {stories.map((story) => (
+        <div key={story._id}> */}
+      <h2>Title {story.title}</h2>
+      <p>Story {story.storyText}</p>
+      {/* </div> */}
+      {/* //))} */}
+    </div>
+  )
+}
 
-app.use(cors())
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
-app.use(logger('dev'))
-
-app.get('/', (req, res) => {
-  res.send({ msg: 'Server Running!' })
-})
-
-//app.get('/comments', commentController.getComments)
-//app.get('/stories', storyController.getStories)
-
-app.listen(PORT, () => console.log(`Server running on ${PORT}`))
-
-// import logo from './logo.svg'
-// import './App.css'
-
-// function App() {
-//   return <div className="App"></div>
-// }
-
-// export default App
+export default App
