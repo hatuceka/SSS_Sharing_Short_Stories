@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import './App.css'
 import StoryForm from './components/StoryForm'
-import story from 'story'
+//import story from './components/StoryForm'
 const App = () => {
-  const [stories, setStories] = useState([])
+  const [story, setStories] = useState([])
 
   const getStoryForm = async () => {
     try {
@@ -23,14 +23,15 @@ const App = () => {
   return (
     <div>
       <StoryForm getStoryForm={getStoryForm} />
-      <h1>User Name {story.userName}</h1>
+
       {/* {stories.map((story) => (
         <div key={story._id}> */}
-      <h2>Title {story.title}</h2>
-      <p>Story {story.storyText}</p>
-      {/* </div> */}
-      {/* //))} */}
+      <h1>{story.userName}</h1>
+      <h2>{story.title}</h2>
+      <p>{story.storyText}</p>
     </div>
+    //   ))}
+    // </div>
   )
 }
 

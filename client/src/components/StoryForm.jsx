@@ -17,7 +17,7 @@ const handleChange = (event) => {
 
 const handleSubmit = async (event) => {
   event.preventDefault()
-  await axios.post('http://localhost:3001/issues', storyFormState)
+  await axios.get('http://localhost:3001/stories', storyFormState)
   setStoryFormState(initialState)
  props.getStoryForm()
 }
