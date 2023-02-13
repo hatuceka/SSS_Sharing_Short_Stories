@@ -29,6 +29,7 @@ app.get('/', (req, res) => {
 app.get('/comments', commentController.getAllComments)
 app.get('/stories', storyController.getAllStories)
 app.post('/new-comment', commentController.createComment)
+app.get('/comment/:id', commentController.findCommentById)
 app.put('/update-comment', commentController.updateComment)
 app.delete('/delete-comment', commentController.deleteComment)
 app.post('/new-story', storyController.createStory)

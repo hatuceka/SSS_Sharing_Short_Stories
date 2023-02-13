@@ -2,8 +2,9 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import './App.css'
 import StoryForm from './components/StoryForm'
+import CommentForm from './components/CommentForm'
 //import story from './components/StoryForm'
-const App = () => {
+const App = (props) => {
   const [story, setStories] = useState([])
 
   const getStoryForm = async () => {
@@ -20,18 +21,34 @@ const App = () => {
     getStoryForm()
   }, [])
 
+  const [comment, setComments] = useState([])
+
+  const getCommentForm = async () => {
+    try {
+      let res = await axios.get('http://localhost:3001/comments')
+      console.log(res.data)
+      setComments(res.data)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  useEffect(() => {
+    getCommentForm()
+  }, [])
+
   return (
     <div>
       <StoryForm getStoryForm={getStoryForm} />
-
-      {/* {stories.map((story) => (
-        <div key={story._id}> */}
-      <h1>{story.userName}</h1>
+      <h1>{story.user}</h1>
       <h2>{story.title}</h2>
-      <p>{story.storyText}</p>
+      <p>{story.text}</p>
+      <div>
+        <CommentForm getCommentForm={getCommentForm} />
+        <h3>{comment.user}</h3>
+        <p>{comment.text}</p>
+      </div>
     </div>
-    //   ))}
-    // </div>
   )
 }
 

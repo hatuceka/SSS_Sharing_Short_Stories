@@ -7,7 +7,7 @@ const Story = new Schema(
     text: { type: String, required: true },
     comments: [{ type: Schema.Types.ObjectId, ref: 'Comment' }],
     user: { type: String, required: true },
-    image: { type: String, required: true }
+    image: { type: String }
   },
   { timestamps: true }
 )

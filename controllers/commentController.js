@@ -22,11 +22,11 @@ const createComment = async (req, res) => {
   }
 }
 
-// const postNewComment = (req, res) => {
-//   res.send({
-//     message: 'New comment posted.'
-//   })
-// }
+const findCommentById = (req, res) => {
+  res.send({
+    message: `The comment with an id of ${req.params.id} found.`
+  })
+}
 
 const updateComment = (req, res) => {
   res.send({
@@ -43,6 +43,7 @@ const deleteComment = (req, res) => {
 module.exports = {
   getAllComments,
   createComment,
+  findCommentById,
   updateComment,
   deleteComment
 }

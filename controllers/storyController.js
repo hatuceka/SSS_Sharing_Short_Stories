@@ -22,12 +22,6 @@ const getAllStories = async (req, res) => {
   }
 }
 
-// const postNewStory = (req, res) => {
-//   res.send({
-//     message: 'New story posted!'
-//   })
-// }
-
 const updateStory = (req, res) => {
   res.send({
     message: 'Story updated.'
@@ -55,7 +49,6 @@ const findStoryById = (req, res) => {
 module.exports = {
   createStory,
   getAllStories,
-  //postNewStory,
   updateStory,
   deleteStory,
   findStoryByTitle,

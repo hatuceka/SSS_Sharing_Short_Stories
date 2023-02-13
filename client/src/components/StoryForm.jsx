@@ -17,20 +17,20 @@ const handleChange = (event) => {
 
 const handleSubmit = async (event) => {
   event.preventDefault()
-  await axios.get('http://localhost:3001/stories', storyFormState)
+  await axios.post('http://localhost:3001/new-story', storyFormState)
   setStoryFormState(initialState)
- props.getStoryForm()
+ //props.getStoryForm()
 }
 
 
 return (
   <form onSubmit={handleSubmit}>
-       <label htmlFor="userName">User Name</label>
-       <input type='text' id='username' onChange={handleChange} value={storyFormState.userName}/>
+    <label htmlFor="user">User Name</label>
+    <input type='text' id='user' onChange={handleChange} value={storyFormState.user}/>
     <label htmlFor="title">Title</label>
     <input type="title" id="title" onChange={handleChange} value={storyFormState.title}/>
-    <label htmlFor="storyText">Story</label>
-    <textarea id="text" cols="30" rows="10" onChange={handleChange} value={storyFormState.storyText}></textarea>
+    <label htmlFor="text">Story</label>
+    <textarea id="text" cols="30" rows="10" onChange={handleChange} value={storyFormState.text}></textarea>
   <button type="submit">Submit</button>
   </form>
 )
