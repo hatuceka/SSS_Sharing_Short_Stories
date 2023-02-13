@@ -28,14 +28,13 @@ app.get('/', (req, res) => {
 
 app.get('/comments', commentController.getAllComments)
 app.get('/stories', storyController.getAllStories)
-app.post('/new-comment', commentController.createComment)
+app.post('/story/:id/new-comment', commentController.createComment)
 app.get('/comment/:id', commentController.findCommentById)
 app.put('/update-comment', commentController.updateComment)
 app.delete('/delete-comment', commentController.deleteComment)
 app.post('/new-story', storyController.createStory)
 app.put('/update-story', storyController.updateStory)
 app.delete('/delete-story', storyController.deleteStory)
-app.get('/find', storyController.findStoryByTitle)
 app.get('/story/:id', storyController.findStoryById)
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))

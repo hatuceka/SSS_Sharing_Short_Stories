@@ -12,4 +12,4 @@ const Story = new Schema(
   { timestamps: true }
 )
 
-module.exports = mongoose.model('Story', Story)
+module.exports = Story

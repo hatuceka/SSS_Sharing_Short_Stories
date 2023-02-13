@@ -1,5 +1,5 @@
 const { app } = require('express')
-const Story = require('../models/story')
+const { Story } = require('../models')
 
 const createStory = async (req, res) => {
   try {
@@ -22,28 +22,41 @@ const getAllStories = async (req, res) => {
   }
 }
 
-const updateStory = (req, res) => {
-  res.send({
-    message: 'Story updated.'
-  })
+const updateStory = async (req, res) => {
+  try {
+    const story = await Story.findByIdAndUpdate(req.params.id, req.body, {
+      new: true
+    })
+    res.status(200).json(story)
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
 }
 
-const deleteStory = (req, res) => {
-  res.send({
-    message: 'Story successfully deleted!'
-  })
+const deleteStory = async (req, res) => {
+  try {
+    const { id } = req.params
+    const deleted = await Story.findByIdAndDelete(id)
+    if (deleted) {
+      return res.status(200).send('Story deleted')
+    }
+    throw new Error('Story not found')
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
 }
 
-const findStoryByTitle = (req, res) => {
-  res.send({
-    message: `The story titled ${req.query.storyTitle} is found.`
-  })
-}
-
-const findStoryById = (req, res) => {
-  res.send({
-    message: `The story with an id of ${req.params.id} found.`
-  })
+const findStoryById = async (req, res) => {
+  try {
+    const { id } = req.params
+    const story = await Story.findById(id)
+    if (story) {
+      return res.status(200).json({ story })
+    }
+    return res.status(404).send('Story with the specified ID does not exist')
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
 }
 
 module.exports = {
@@ -51,6 +64,5 @@ module.exports = {
   getAllStories,
   updateStory,
   deleteStory,
-  findStoryByTitle,
   findStoryById
 }
