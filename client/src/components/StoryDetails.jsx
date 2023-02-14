@@ -23,7 +23,7 @@ const StoryDetails = ({ selectedStory, setSelectedStory }) => {
       <h2 className="author">Author: {storyDetails.user}</h2>
       <h1 className="content">{storyDetails.title}</h1>
       <img src={storyDetails.image} alt="image" />
-      <p className="content">{movieDetails.text}</p>
+      <p className="content">{storyDetails.text}</p>
       <button onClick={() => setSelectedStory(null)}>Back</button>
     </div>
   )
