@@ -34,6 +34,8 @@ const handleChange = (event) => {
 }
 
 return (
+  <div>
+    <StoryList />
     <div className='search'>
       <Search value={searchQuery} onChange={handleChange} onSubmit={getSearchResults}/>
       {searched && (
@@ -48,6 +50,7 @@ return (
           </section>
         </div>
       )}
+    </div>
     </div>
 )
 }

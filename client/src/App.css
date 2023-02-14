@@ -12,3 +12,55 @@ form {
   width: 100vw;
   height: 30vh;
 }
+
+header {
+  background-color: #212121;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 3em;
+}
+
+header nav a {
+  margin: 0 1em;
+}
+
+input {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  padding: 0.5em 0.2em;
+  width: auto;
+  transition: all 0.2s;
+  font-size: 1.3rem;
+  color: #eee;
+}
+
+input:active,
+input:focus {
+  outline: none;
+
+  border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  transition: all 0.2s;
+}
+
+input:active::placeholder,
+input:focus::placeholder {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+main {
+  padding: 2em 0;
+}
+
+.about {
+  padding: 2em;
+  text-align: center;
+  width: 60%;
+  font-size: x-large;
+  font-weight: bold;
+}
