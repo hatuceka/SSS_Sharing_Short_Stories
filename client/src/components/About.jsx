@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 const About = () => {
 
 
@@ -7,6 +9,7 @@ const About = () => {
       <p>
         SSS (Sharing Short Stories) is a public platform you can create your own stories. 
       </p>
+      <Link to='/' className='back'>Back</Link>
     </div>
   )
 }

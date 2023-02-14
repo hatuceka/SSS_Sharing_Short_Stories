@@ -8,16 +8,16 @@ const API_KEY = process.env.REACT_APP_API_KEY
 
 const Home = () => {
 
-const [stories, setStories] = useState([])
+  const [stories, setStories] = useState([])
 const [searchResults, setSearchResults] = useState([])
 const [searched, toggleSearched] = useState(false)
 const [searchQuery, setSearchQuery] = useState('')
 
-useEffect(() => {
-  const getStories = async () => {
+const getStories = async () => {
     const response = await axios.get(`http://localhost:3001/stories`)
-    setStories(response.data.results)
+    setStories(response.data.stories)
   }
+useEffect(() => {
   getStories()
 }, [])
 
@@ -35,7 +35,7 @@ const handleChange = (event) => {
 
 return (
   <div>
-    <StoryList />
+    <StoryList stories={stories} />
     <div className='search'>
       <Search value={searchQuery} onChange={handleChange} onSubmit={getSearchResults}/>
       {searched && (

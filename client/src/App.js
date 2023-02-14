@@ -46,7 +46,7 @@ const App = (props) => {
       <Header />
       <main>
         <Routes>
-          <Route index element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="story/:id" element={<StoryDetails />} />
           <Route path="new-story" element={<StoryForm />} />
