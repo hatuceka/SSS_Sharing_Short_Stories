@@ -3,46 +3,8 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import CommentForm from './CommentForm'
-//import { BASE_URL, API_KEY } from '../globals'
-//import { POSTER_PATH } from '../globals'
 
-// const StoryDetails = () => {
-
-  // const [storyDetails, setStoryDetails] = useState({})
-  // const [comment, setComments] = useState([])
-
-  // const getCommentForm = async () => {
-  //   try {
-  //     let res = await axios.get('http://localhost:3001/new-comment')
-  //     console.log(res.data)
-  //     setComments(res.data)
-  //   } catch (err) {
-  //     console.log(err)
-  //   }
-  // }
-
-  // let { storyId } = useParams()
-
-  // useEffect(() => {
-  //   let isCancelled = false
-  //   const getStoryDetails = async () => {
-  //     const response = await axios.get(
-  //       `https://localhost:3001/story/${storyId}`
-  //     )
-  //     if (!isCancelled) {
-  //       setStoryDetails(response.data)
-  //     }
-  //   }
-  //   getCommentForm()
-  //   getStoryDetails()
-  //   return () => {
-  //     isCancelled = true
-  //   }
-  // }, [storyId])
-
-
-
-const StoryDetails = ({ selectedStory, setSelectedStory }) => {
+const StoryDetails = () => {
 let comment = []
   const initialState = {
     user: '',
@@ -53,15 +15,7 @@ let comment = []
   const { id } = useParams()
   const [comments, setComments] = useState(initialState)
 
-  // const getComments = async () => {
-  //   try {
-  //     let res = await axios.get(`http://localhost:3001/story/${id}/comments`)
-  //     console.log(res.data)
-  //     setComments(res.data)
-  //   } catch (err) {
-  //     console.log(err)
-  //   }
-  // }
+
 
   const handleChange = (event) => {
     setComments({ ...comments, [event.comments.id]: event.comments.value })
@@ -83,9 +37,7 @@ let comment = []
       console.log(response)
      
     }
-//getComments()
-//handleChange()
-//handleSubmit()
+
     getStoryDetails()
   }, [])
 const showComments = () => {
@@ -105,10 +57,10 @@ console.log(storyDetails)
       {storyDetails.comments && 
       <div>
      
-      <h2 className="author">Author: {storyDetails?.user}</h2>
-      <h1 className="content">{storyDetails?.title}</h1>
-      <img src={storyDetails?.image} />
-      <p className="content">{storyDetails?.text}</p>
+      <h2 className="author">Author: {storyDetails.user}</h2>
+      <h1 className="content">{storyDetails.title}</h1>
+      <img src={storyDetails.image} />
+      <p className="content">{storyDetails.text}</p>
       <div>{comment}</div>
       <div>
                   <CommentForm onChange={handleChange} onSubmit={handleSubmit}  />
@@ -116,7 +68,7 @@ console.log(storyDetails)
                   <p>{comments.text}</p>
                 </div>
                 <Link to='/' className='back'>Back to Home</Link>
-      {/* <button onClick={() => setStoryDetails(null)}>Back</button> */}
+  
       </div>
       }</div>
 
