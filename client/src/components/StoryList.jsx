@@ -10,11 +10,12 @@ const StoryList = (props) => {
       {
       props.stories.map((story) => (
         <div className="story-card" key={story._id}>
-          <Link to={`${story.id}`}>
+          {/* <Link to={`${story.id}`}> */}
           {/* <img style={{ display: 'block' }} src={story.img} alt={story.title} /> */}
-          </Link>
+          {/* </Link> */}
           <h3>{story.title}</h3>
           <h3>{story.user}</h3>
+          {/* <Link to='/' className='back'>Back</Link> */}
           
           
         </div>

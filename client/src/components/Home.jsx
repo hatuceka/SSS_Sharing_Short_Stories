@@ -19,12 +19,13 @@ const getStories = async () => {
   }
 useEffect(() => {
   getStories()
-}, [])
+}, [searched])
 
 const getSearchResults = async (event) => {
 event.preventDefault()
-const response = await axios.get(`http://localhost:3001/stories?search=${searchQuery}`)
-setSearchResults(response.data.results)
+const response = await axios.get(`http://localhost:3001/find-story?search=${searchQuery}`)
+
+setSearchResults(response.data.story)
 setSearchQuery('')
 toggleSearched(true)
 }
@@ -32,27 +33,46 @@ toggleSearched(true)
 const handleChange = (event) => {
   setSearchQuery(event.target.value)
 }
-
+const clearSearch = () => {
+  setSearchResults([])
+  toggleSearched(false)
+}
 return (
   <div>
-    <StoryList stories={stories} />
     <div className='search'>
-      <Search value={searchQuery} onChange={handleChange} onSubmit={getSearchResults}/>
-      {searched && (
-        <div>
-          <h1>Search Results</h1>
-          <section className='search-results container-grid'>
-            {searchResults.map((result) => (
-              <Link to={`/story/:id/${result.id}`} key={result.id}>
-            <StoryList {...result} image={result.image} />
-            </Link>
-            ))}
-          </section>
-        </div>
-      )}
+    <Search
+    clearSearch={clearSearch}
+          value={searchQuery}
+          onChange={handleChange}
+          onSubmit={getSearchResults}
+        />
+
+        {searchResults?.length &&
+          (<div>
+            <h1>Search Results</h1>
+            <section className="search-results container-grid">
+              {searchResults.map((result) => (
+                <Link to={`/story/${result._id}`} key={result._id}> 
+                
+                  <StoryList
+                   stories={searchResults}
+                  />
+                </Link>
+                
+              ))}
+              
+            </section>
+          </div>)}
+        {/* //  :
+        // `The story you've searched couldn't be found!` */}
+        
     </div>
+    {!searched ? <StoryList stories={stories} /> : ''}
+    
     </div>
 )
+
+
 }
 
 export default Home

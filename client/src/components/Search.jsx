@@ -1,8 +1,9 @@
 const Search = (props) => {
 
   return (
+    <div>
     <form onSubmit={ props.onSubmit}>
-<input 
+<input className='search-input'
   type="text"
   name="search"
   value={props.value}
@@ -10,7 +11,10 @@ const Search = (props) => {
   onChange={props.onChange}
 ></input>
 <button type='submit'>Search</button>
+
     </form>
+    <button onClick={props.clearSearch} >Clear Search</button>
+    </div>
   )
 }
 

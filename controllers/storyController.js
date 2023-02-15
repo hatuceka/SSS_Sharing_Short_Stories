@@ -59,10 +59,24 @@ const findStoryById = async (req, res) => {
   }
 }
 
+const findStory = async (req, res) => {
+  try {
+    console.log(req.query.search)
+    const story = await Story.find({ title: req.query.search })
+    if (story) {
+      return res.status(200).json({ story })
+    }
+    return res.status(404).send('Story with the specified ID does not exist')
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
+
 module.exports = {
   createStory,
   getAllStories,
   updateStory,
   deleteStory,
-  findStoryById
+  findStoryById,
+  findStory
 }

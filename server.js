@@ -36,6 +36,7 @@ app.post('/new-story', storyController.createStory)
 app.put('/update-story', storyController.updateStory)
 app.delete('/delete-story', storyController.deleteStory)
 app.get('/story/:id', storyController.findStoryById)
+app.get('/find-story', storyController.findStory)
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 
