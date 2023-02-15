@@ -15,7 +15,7 @@ const createStory = async (req, res) => {
 
 const getAllStories = async (req, res) => {
   try {
-    const stories = await Story.find()
+    const stories = await Story.find().populate('comments')
     return res.status(200).json({ stories })
   } catch (error) {
     return res.status(500).send(error.message)
@@ -49,7 +49,7 @@ const deleteStory = async (req, res) => {
 const findStoryById = async (req, res) => {
   try {
     const { id } = req.params
-    const story = await Story.findById(id)
+    const story = await Story.findById(id).populate('comments')
     if (story) {
       return res.status(200).json({ story })
     }

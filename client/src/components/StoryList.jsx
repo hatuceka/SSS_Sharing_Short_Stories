@@ -14,7 +14,7 @@ const StoryList = (props) => {
           {/* <img style={{ display: 'block' }} src={story.img} alt={story.title} /> */}
           {/* </Link> */}
           <h3>{story.title}</h3>
-          <h3>{story.user}</h3>
+          {/* <h3>{story.user}</h3> */}
           {/* <Link to='/' className='back'>Back</Link> */}
           
           

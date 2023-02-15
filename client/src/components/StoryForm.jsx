@@ -24,14 +24,16 @@ const handleSubmit = async (event) => {
 
 
 return (
-  <form onSubmit={handleSubmit}>
+  <form  onSubmit={handleSubmit}>
+    <div className="storyForm" >
     <label htmlFor="user">User Name</label>
-    <input type='text' id='user' onChange={handleChange} value={storyFormState.user}/>
+    <input className="storyUser" type='text' id='user' onChange={handleChange} value={storyFormState.user}/>
     <label htmlFor="title">Title</label>
-    <input type="title" id="title" onChange={handleChange} value={storyFormState.title}/>
+    <input className="storyTitle" type="title" id="title" onChange={handleChange} value={storyFormState.title}/>
     <label htmlFor="text">Story</label>
-    <textarea id="text" cols="30" rows="10" onChange={handleChange} value={storyFormState.text}></textarea>
+    <textarea className="storyText" id="text" cols="30" rows="10" onChange={handleChange} value={storyFormState.text}></textarea>
   <button type="submit">Submit</button>
+  </div>
   </form>
 )
 

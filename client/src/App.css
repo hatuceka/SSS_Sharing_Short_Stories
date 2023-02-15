@@ -19,6 +19,7 @@ header {
   justify-content: flex-start;
   align-items: center;
   height: 3em;
+  
 }
 
 header nav a {
@@ -68,4 +69,43 @@ main {
 .search-input {
   border: 2px solid black;
   color: black;
+}
+
+/* form {
+  height: 200px;
+  width: 200px;
+  background-color: black;
+} */
+
+.storyForm {
+margin: 0 auto;
+  height: 200px;
+  width: 200px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border: 2px solid black;
+  color: black;
+
+}
+.storyText {
+  border: 2px solid black;
+}
+
+.commentUser {
+  color: black;
+  border: 1px solid black;
+   height: 10px;
+  width: 100px;
+}
+
+.commentText {
+  height: 40px;
+  width: 300px;
+}
+.commentForm {
+  display: flex;
+  justify-content: space-between;
 }
