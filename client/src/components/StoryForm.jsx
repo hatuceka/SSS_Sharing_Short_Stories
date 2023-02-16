@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 const StoryForm = (props) => {
 
@@ -25,6 +26,7 @@ const handleSubmit = async (event) => {
 
 
 return (
+  <div>
   <form  onSubmit={handleSubmit}>
     <div className="storyForm" >
     <label htmlFor="user">User Name</label>
@@ -33,11 +35,13 @@ return (
     <input className="storyTitle" type="title" id="title" onChange={handleChange} value={storyFormState.title}/>
     <label htmlFor="text">Story</label>
     <textarea className="storyText" id="text" onChange={handleChange} value={storyFormState.text}></textarea>
-  <label htmlFor="image">Image</label>
+  <label htmlFor="image">Image URL</label>
   <input className="storyImage" id="image" onChange={handleChange} value={storyFormState.image}></input>
   <button type="submit">Submit</button>
   </div>
   </form>
+  <Link to='/' className='back'>Back to Home</Link>
+  </div>
 )
 
 

@@ -9,7 +9,7 @@ const About = () => {
       <p>
         SSS (Sharing Short Stories) is a public platform you can create your own stories. 
       </p>
-      <Link to='/' className='back'>Back</Link>
+      <Link to='/' className='back'>Back to Home</Link>
     </div>
   )
 }
