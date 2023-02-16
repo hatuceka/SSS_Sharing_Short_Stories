@@ -48,7 +48,7 @@ return (
           onSubmit={getSearchResults}
         />
 
-        {searchResults?.length &&
+        {searchResults.length &&
           (<div>
             <h1>Search Results</h1>
             <section className="search-results container-grid">

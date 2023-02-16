@@ -137,17 +137,23 @@ margin: 0 auto;
 .commentUser {
   color: black;
   border: 1px solid black;
-   height: 10px;
+   height: 30px;
   width: 100px;
+  border: none;
 }
 
 .commentText {
-  height: 40px;
-  width: 300px;
+  height: 30px;
+  width: 390px;
+  border: none;
 }
 .commentForm {
   display: flex;
   justify-content: space-between;
+  border: 2px solid black;
+  width: 600px;
+  display: flex;
+  
 }
 
 .searching {
@@ -156,6 +162,25 @@ margin: 0 auto;
   
 }
 
+.commentButton {
+  height: 30px;
+  width: 100px;
+}
+
+.allComments {
+  
+  display: flex;
+  justify-content: flex-start;
+  margin: 10px 0 10px 0;
+  
+  
+}
+.submittedUser {
+  border: 2px solid black;
+}
+.submittedComment {
+  border: 2px solid black;
+}
 .story-card {
 
 }

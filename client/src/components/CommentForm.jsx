@@ -27,11 +27,11 @@ const handleSubmit = async (event) => {
 return (
   <form className="commentForm" onSubmit={handleSubmit}>
     <div>
-  <label htmlFor="user">User Name</label>
-    <input className="commentUser" type='text' id='user' onChange={handleChange} value={commentFormState.user}/>
+  <label htmlFor="user"></label>
+    <input className="commentUser" placeholder="User Name" type='text' id='user' onChange={handleChange} value={commentFormState.user}/>
     <label htmlFor="text"></label>
-    <textarea className="commentText" id="text" cols="30" rows="10" onChange={handleChange} value={commentFormState.text}></textarea>
-  <button type="submit">Comment</button>
+    <input className="commentText" placeholder="Comment" id="text" onChange={handleChange} value={commentFormState.text}></input>
+  <button className="commentButton" type="submit">Comment</button>
   </div>
   </form>
 )
