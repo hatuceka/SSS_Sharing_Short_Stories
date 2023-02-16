@@ -39,6 +39,7 @@ const clearSearch = () => {
 }
 return (
   <div>
+   
     <div className='search'>
     <Search
     clearSearch={clearSearch}
@@ -53,7 +54,6 @@ return (
             <section className="search-results container-grid">
               {searchResults.map((result) => (
                 <Link to={`/story/${result._id}`} key={result._id}> 
-                
                   <StoryList
                    stories={searchResults}
                   />
@@ -67,7 +67,7 @@ return (
         // `The story you've searched couldn't be found!` */}
         
     </div>
-    {!searched ? <StoryList stories={stories} /> : ''}
+    {!searched && <StoryList stories={stories} /> }
     
     </div>
 )

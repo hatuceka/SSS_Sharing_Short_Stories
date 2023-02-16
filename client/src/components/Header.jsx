@@ -5,10 +5,26 @@ const Header = () => {
 
   return (
     <header>
-      <nav>
-        <Link to='/'>Home</Link>
-        <Link to='/about'>About</Link>
-        <Link to='/new-story'>Create A Story</Link>
+      <nav >
+        
+        <Link className="link" to='/'><b>Home</b></Link>
+        <Link className="link" to='/about'><b>About</b></Link>
+        <Link className="link" to='/new-story'><b>Create A Story</b></Link>
+        {/* <div className="searching" >
+    <form onSubmit={ props.onSubmit}>
+<input className='search-input'
+  type="text"
+  name="search"
+  value={props.value}
+  placeholder="Search Stories"
+  onChange={props.onChange}
+></input>
+<button type='submit'>Search</button> */}
+{/* 
+    </form>
+    <button onClick={props.clearSearch} >Clear Search</button>
+    </div> */}
+
       </nav>
     </header>
   )

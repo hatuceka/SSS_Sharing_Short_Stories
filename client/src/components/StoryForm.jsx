@@ -6,7 +6,8 @@ const StoryForm = (props) => {
   const initialState = {
     user: '',
     title: '',
-    text: ''
+    text: '',
+    image: ''
   }
 
 const [storyFormState, setStoryFormState] = useState(initialState)
@@ -31,7 +32,9 @@ return (
     <label htmlFor="title">Title</label>
     <input className="storyTitle" type="title" id="title" onChange={handleChange} value={storyFormState.title}/>
     <label htmlFor="text">Story</label>
-    <textarea className="storyText" id="text" cols="30" rows="10" onChange={handleChange} value={storyFormState.text}></textarea>
+    <textarea className="storyText" id="text" onChange={handleChange} value={storyFormState.text}></textarea>
+  <label htmlFor="image">Image</label>
+  <input className="storyImage" id="image" onChange={handleChange} value={storyFormState.image}></input>
   <button type="submit">Submit</button>
   </div>
   </form>

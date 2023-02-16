@@ -1,7 +1,7 @@
 const Search = (props) => {
 
   return (
-    <div>
+    <div className="searching">
     <form onSubmit={ props.onSubmit}>
 <input className='search-input'
   type="text"
