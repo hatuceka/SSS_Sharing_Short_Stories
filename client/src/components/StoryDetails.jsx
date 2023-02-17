@@ -9,15 +9,15 @@ const StoryDetails = () => {
 let comment = []
   const initialState = {
     user: '',
-    title: '',
+    // title: '',
     text: ''
   }
   const [storyDetails, setStoryDetails] = useState({})
   const { id } = useParams()
   //const { commentId } = useParams()
-  const [comments, setComments] = useState({})
+  const [comments, setComments] = useState(initialState)
   const [editingComment, setEditingComment] = useState(null)
-const [showEditForm, setShowEditForm] = useState(false)
+// const [showEditForm, setShowEditForm] = useState(false)
 
 
 
@@ -35,49 +35,30 @@ const [showEditForm, setShowEditForm] = useState(false)
 
   const handleEdit = (comment) => {
     setEditingComment(comment)
-    setShowEditForm(true)
+    // setShowEditForm(true)
   }
   
-  const handleEditSubmit = async (event) => {
-    event.preventDefault()
-    await axios.put(`http://localhost:3001/story/${id}/update-comment/${editingComment._id}`, editingComment)
-    setEditingComment(null)
-    setShowEditForm(false)
-    //setComments(initialState)
-    //Reload the story details to update the comment list
-    const response = await axios.get(`http://localhost:3001/story/${id}`)
+  const getStoryDetails = async () => {
+    const response = await axios.get(
+      `http://localhost:3001/story/${id}`
+    
+    )
     setStoryDetails(response.data.story)
+    console.log(response)
+   
   }
-  
-
   const handleSubmit = async (event) => {
     event.preventDefault()
+    console.log(comments)
     await axios.post(`http://localhost:3001/story/${id}/new-comment`, comments)
-    setComments([])
-    const response = await axios.get(`http://localhost:3001/story/${id}`)
-    setStoryDetails(response.data.story)
-    
-    // setStoryDetails(prevState => {
-    //   const updatedComments = prevState.comments.filter(comment => comment._id !== commentId)
-    //   return {
-    //     ...prevState,
-    //     comments: updatedComments
-    // }
-    
-    // })
+    setComments(initialState)
+    // const response = await axios.get(`http://localhost:3001/story/${id}`)
+    // setStoryDetails(response.data.story)
+    getStoryDetails()
+   
   }
-
+  
   useEffect(() => {
-    const getStoryDetails = async () => {
-      const response = await axios.get(
-        `http://localhost:3001/story/${id}`
-      
-      )
-      setStoryDetails(response.data.story)
-      // console.log(response)
-     
-    }
-
     getStoryDetails()
   }, [id])
 
@@ -92,15 +73,17 @@ const showComments = () => {
   return ( <div
     className="allComments"
     key= {comment._id}>
-        <form className="commentForm" onSubmit={handleEditSubmit}>
+        {/* <form className="commentForm" onSubmit={handleEditSubmit}>
     <div>
   <label htmlFor="user"></label>
     <input className="commentUser" placeholder="User Name" type='text' id='user' onChange={handleChange} value={comment.user}/>
     <label htmlFor="text"></label>
-    <input className="commentText" placeholder="Comment" id="text" onChange={handleChange} value={comment.text}></input>
-  <button className="commentButton" type="submit">Comment</button>
+    <input className="commentText" placeholder="Comment" id="text" onChange={handleChange} value={comment.text}></input> */}
+  {/* <button className="commentButton" type="submit">Comment</button> */}
+{/*   
   </div>
-  </form>
+  </form> */}
+  <EditCommentForm  comment={comment} />
 
       {/* <div className="submittedUser">{comment.user}</div> 
       <div className="submittedComment">{comment.text}</div>  */}
@@ -140,9 +123,9 @@ const showComments = () => {
 )} */}
  {!editingComment && (
       <div >
-                  <CommentForm onChange={handleChange} onSubmit={handleSubmit}  />
-                  <h3>{comments.user}</h3>
-                  <p>{comments.text}</p>
+                  <CommentForm comments={comments} handleChange={handleChange} handleSubmit={handleSubmit} getStoryDetails={getStoryDetails} />
+                  {/* <h3>{comments.user}</h3>
+                  <p>{comments.text}</p> */}
                 </div>
  )}
 
