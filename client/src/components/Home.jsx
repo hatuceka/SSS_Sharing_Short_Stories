@@ -4,6 +4,8 @@ import axios from 'axios'
 import Search from './Search'
 import StoryList from './StoryList'
 
+
+
 const API_KEY = process.env.REACT_APP_API_KEY
 
 const Home = () => {
@@ -12,6 +14,10 @@ const Home = () => {
 const [searchResults, setSearchResults] = useState([])
 const [searched, toggleSearched] = useState(false)
 const [searchQuery, setSearchQuery] = useState('')
+
+const handleGoBack = () => {
+  window.location.href = '/'
+}
 
 const getStories = async () => {
     const response = await axios.get(`http://localhost:3001/stories`)
@@ -24,8 +30,10 @@ useEffect(() => {
 const getSearchResults = async (event) => {
 event.preventDefault()
 const response = await axios.get(`http://localhost:3001/find-story?search=${searchQuery}`)
-
-setSearchResults(response.data.story)
+const results = response.data.story.filter((story) =>
+      story.title.toLowerCase().includes(searchQuery.toLowerCase())
+    )
+setSearchResults(results)
 setSearchQuery('')
 toggleSearched(true)
 }
@@ -38,8 +46,7 @@ const clearSearch = () => {
   toggleSearched(false)
 }
 return (
-  <div>
-   
+ 
     <div className='search'>
     <Search
     clearSearch={clearSearch}
@@ -47,29 +54,36 @@ return (
           onChange={handleChange}
           onSubmit={getSearchResults}
         />
-
-        {searchResults.length &&
-          (<div>
+{searched && searchResults.length === 0 && (
+  <div>
+    <p>There is no matching result</p>
+    <button onClick={handleGoBack}>Back to Home</button>
+    
+  </div>
+)}
+      {searchResults.length > 0 && (
+          <div>
             <h1>Search Results</h1>
             <section className="search-results container-grid">
               {searchResults.map((result) => (
                 <Link to={`/story/${result._id}`} key={result._id}> 
                   <StoryList
-                   stories={searchResults}
+                   stories={[result]}
                   />
+                  <button onClick={handleGoBack}>Back to Home</button>
                 </Link>
                 
               ))}
               
             </section>
-          </div>)}
-        {/* //  :
-        // `The story you've searched couldn't be found!` */}
-        
+          </div>
+          
+          )} 
+         {!searched && <StoryList stories={stories} /> }
     </div>
-    {!searched && <StoryList stories={stories} /> }
+   
     
-    </div>
+   
 )
 
 
