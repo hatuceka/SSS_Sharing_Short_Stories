@@ -1,27 +1,24 @@
 import { Link } from 'react-router-dom'
 
-
 const StoryList = (props) => {
-
-
   return (
-
-<div className="story-grid">
-      {
-      props.stories.map((story) => (
+    <div className="story-grid">
+      {props.stories.map((story) => (
         <Link key={story._id} to={`/story/${story._id}`}>
-        <div className="card" >
-          {/* <Link to={`${story.id}`}> */}
-          <img style={{ display: 'block' }} src={story.image} alt={story.title} />
-          <h3 className="list-title" >{story.title}</h3>
-        </div>
+          <div className="card">
+            {/* <Link to={`${story.id}`}> */}
+            <img
+              style={{ display: 'block' }}
+              src={story.image}
+              alt={story.title}
+            />
+            <h3 className="list-title">{story.title}</h3>
+          </div>
         </Link>
       ))}
     </div>
 
-
-
-/* <div onClick={props.onClick} className="story-list">
+    /* <div onClick={props.onClick} className="story-list">
       <div className="img-wrapper">
 <img src={props.image} />
       </div>
@@ -30,6 +27,6 @@ const StoryList = (props) => {
       </div>
     </div> */
   )
-      }
+}
 
 export default StoryList

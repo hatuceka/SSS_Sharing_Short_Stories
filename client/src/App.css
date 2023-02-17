@@ -1,6 +1,8 @@
 body {
   margin: 0;
   text-align: center;
+  background-image: url("/Users/haticeyorukoglu/SEI-R-1-9/projects/SSS_Sharing_Short_Stories/client/src/rainbow.png");;
+background-size: cover;
 }
 
 header {
@@ -66,77 +68,115 @@ header nav a {
   justify-content: center;
 }
 
-/* input {
-  background-color: transparent;
-  border: 0;
-  border-bottom: 2px solid black;
-  padding: 0.5em 0.2em;
-  width: auto;
-  transition: all 0.2s;
-  font-size: 1.3rem;
-  color: #eee;
+.author {
+  color: rgb(106, 170, 113);
+  font-family:'Courier';
+}
+.content {
+  color: rgb(106, 170, 113);
+  font-family:'Courier';
 }
 
-input:active,
-input:focus {
-  outline: none;
-
-  border: 2px solid black;
-}
-
-input::placeholder {
-  color: rgb(190, 190, 190);
-  transition: all 0.2s;
-}
-
-input:active::placeholder,
-input:focus::placeholder {
-  color: rgb(190, 190, 190);;
-}
-
-main {
-  padding: 2em 0;
-}
-
-.about {
-  padding: 2em;
-  text-align: center;
-  width: 60%;
-  font-size: x-large;
+.storyContent {
+  color:rgb(206, 141, 20);
+  font-family:'Courier';
+  font-size: 20px;
   font-weight: bold;
+
 }
-
-.search-input {
-  border: 2px solid black;
-  color: black;
-} */
-
-/* form {
-  height: 200px;
-  width: 200px;
-  background-color: black;
-} */
 
 .storyForm {
-margin: 0 auto;
-  height: 200px;
-  width: 200px;
+  background-image: url("/Users/haticeyorukoglu/SEI-R-1-9/projects/SSS_Sharing_Short_Stories/client/src/Frame.png");
+background-size: cover;
+margin: 100px auto;
+  height: 800px;
+  width: 900px;
   background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  border: 2px solid black;
-  color: black;
+  padding: 50px;
+  /* border: 2px solid rgb(243, 186, 79); */
+  color: rgb(243, 186, 79);
 
 }
+
+.storyStuff {
+  display: flex;
+  gap: 20px;
+  margin-top: 80px;
+}
+
+.storyUser {
+width: 150px;
+height: 30px;
+border: 2px solid rgb(106, 170, 113);
+  color: rgb(243, 186, 79);
+  border-radius: 5px;
+}
+
+.storyTitle {
+  width: 150px;
+  height: 30px;
+  border: 2px solid rgb(106, 170, 113);
+  color: rgb(243, 186, 79);
+  border-radius: 5px;
+}
+
+.storyImageB {
+  width: 150px;
+  height: 30px;
+  border: 2px solid rgb(106, 170, 113);
+  color: rgb(243, 186, 79);
+  border-radius: 5px;
+}
+
+.storyPage {
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 50px;
+}
+
+.storyImage {
+  /* width: 200px;
+  height: 300px; */
+  border: 2px solid rgb(106, 170, 113);
+  color: rgb(243, 186, 79);
+  border-radius: 5px;
+  float: left;
+  /* background-size: cover;
+  grid-column: span 1; */
+}
+
+
 .storyText {
-  border: 2px solid black;
+  border: 2px solid  rgb(243, 186, 79);
+font-size: 18px;
+width: 550px;
+height: 400px;
+  color:rgb(106, 170, 113);
+  border-radius: 5px;
+  display: flex;
+  grid-column: span 2;
+}
+
+.storySubmit {
+  width: 100px;
+  height: 36px;
+  border: none;
+  background-color:#f8f885;
+  color:rgb(106, 170, 113);
+  font-weight: bold;
+  font-size: 15px;
+  border-radius: 10px;
+  border: 2px solid rgb(106, 170, 113);
 }
 
 .commentUser {
-  color: black;
-  border: 1px solid black;
+  color: rgb(106, 170, 113);
+  border: 1px solid rgb(106, 170, 113);
    height: 30px;
   width: 100px;
   border: none;
@@ -150,10 +190,41 @@ margin: 0 auto;
 .commentForm {
   display: flex;
   justify-content: space-between;
-  border: 2px solid black;
+  border: 2px solid rgb(106, 170, 113);;
   width: 600px;
   display: flex;
+color: rgb(106, 170, 113);
   
+}
+.commentButton {
+  height: 40px;
+  width: 102px;
+  border: 1px solid rgb(106, 170, 113);
+  border-radius: 5px;
+  color: rgb(106, 170, 113);
+  font-weight: bold;
+}
+
+.allComments {
+  grid-row: 2 / span 2;
+  display: flex;
+  justify-content: flex-start;
+  margin: 10px 0 10px 0;
+  
+  
+}
+.submittedUser {
+  border: 2px solid black;
+}
+.submittedComment {
+  border: 2px solid black;
+}
+.backDetails {
+  text-decoration: none;
+  color: rgb(106, 170, 113);
+  font-size: 30px;
+ font-weight: bold;
+ text-align: right;
 }
 
 .searching {
@@ -171,16 +242,28 @@ margin: 0 auto;
 .searchInput {
 width: 300px;
 height: 30px;
-border: 2px solid #f8f885;
+border: 2px solid  #f8f885;
 border-top-left-radius: 10px;
 border-bottom-left-radius: 10px;
 background-color: white;
+
 }
+input[type=text] {
+color: rgb(245, 180, 59);
+font-size: 20px;
+font-weight: bold;
+}
+
+::placeholder {
+  color: rgb(240, 191, 100);
+  font-size: 15px;
+  padding: 8px;
+} 
 
 .searchButton {
 width: 100px;
   height: 36px;
-  border: none;
+  border:  rgb(103, 155, 77);
   background-color:#f8f885;
   color:rgb(243, 186, 79);
   font-weight: bold;
@@ -191,34 +274,72 @@ border-bottom-right-radius: 10px;
 .clear {
   width: 80px;
 height: 36px;
-border: none;
+border: rgb(103, 155, 77);
 background-color:#f8f885;
 color:rgb(243, 186, 79);
 font-weight: bold;
 font-size: 15px;
 margin-top: 30px;
 margin-right: 20px;
+border-radius: 10px;
 }
 
-.commentButton {
-  height: 30px;
-  width: 100px;
+.noResult {
+  color: rgb(103, 155, 77);
+font-weight: bold;
+font-size: 40px;
+margin-top: 220px;
+font-family:'Courier New', Courier, monospace;
 }
 
-.allComments {
-  
-  display: flex;
-  justify-content: flex-start;
-  margin: 10px 0 10px 0;
-  
-  
+.goBack {
+  width: 150px;
+  height: 36px;
+  margin-top: 0 auto;
+  border: none;
+  background-color:#f8f885;
+  color:rgb(106, 170, 113);
+  font-weight: bold;
+  font-size: 15px;
+  border-radius: 10px;
+  border: 2px solid rgb(106, 170, 113);
+  cursor: pointer;
 }
-.submittedUser {
-  border: 2px solid black;
-}
-.submittedComment {
-  border: 2px solid black;
-}
-.story-card {
 
+
+
+.about {
+  margin:  auto;
+  padding: 100px;
+  padding-top: 250px;
+  padding-left: 250px;
+  width: 500px;
+  height: 500px;
+  font-family:'Courier';
+  color: rgb(243, 186, 79);
+  font-size: 30px;
+}
+/* 
+.aboutTitle {
+  margin: 80px auto;
+  font-family:'Courier New', Courier, monospace;
+  color: rgb(243, 186, 79);
+  font-size: 30px;
+} */
+.body {
+background-image: url("/Users/haticeyorukoglu/SEI-R-1-9/projects/SSS_Sharing_Short_Stories/client/src/kids.png");
+background-size: cover;
+}
+
+.back {
+  text-decoration: none;
+  color: rgb(106, 170, 113);
+  font-size: 30px;
+ font-weight: bold;
+ 
+}
+
+.aboutLink {
+  padding: 20px;
+  
 }
