@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
+import { PromiseProvider } from 'mongoose'
 
-const EditCommentForm = ({ comment, id }) => {
+const EditCommentForm = ({ comment, id, showEditForm, setShowEditForm }) => {
   const [updateComment, setUpdateComment] = useState(comment)
 
   const handleChange = (event) => {
@@ -20,6 +21,7 @@ const EditCommentForm = ({ comment, id }) => {
       `http://localhost:3001/story/${id}/update-comment/${comment._id}`,
       updateComment
     )
+    setShowEditForm(false)
   }
 
   //const { id } = useParams()
@@ -44,6 +46,7 @@ const EditCommentForm = ({ comment, id }) => {
           placeholder="Comment"
           type="text"
           id="text"
+          disabled={!showEditForm}
           onChange={handleChange}
           value={updateComment.text}
         ></input>

@@ -17,7 +17,7 @@ const StoryDetails = () => {
   //const { commentId } = useParams()
   const [comments, setComments] = useState(initialState)
   const [editingComment, setEditingComment] = useState(null)
-  // const [showEditForm, setShowEditForm] = useState(false)
+  const [showEditForm, setShowEditForm] = useState(false)
 
   const handleChange = (event) => {
     setComments({ ...comments, [event.target.id]: event.target.value })
@@ -35,7 +35,7 @@ const StoryDetails = () => {
 
   const handleEdit = (comment) => {
     setEditingComment(comment)
-    // setShowEditForm(true)
+    setShowEditForm(true)
   }
 
   const getStoryDetails = async () => {
@@ -65,7 +65,7 @@ const StoryDetails = () => {
     if (storyDetails.comments) {
       comment = storyDetails.comments.map((comment) => {
         return (
-          <div className="allComments" key={comment._id}>
+          <div className="comment" key={comment._id}>
             {/* <form className="commentForm" onSubmit={handleEditSubmit}>
     <div>
   <label htmlFor="user"></label>
@@ -76,7 +76,11 @@ const StoryDetails = () => {
             {/*   
   </div>
   </form> */}
-            <EditCommentForm comment={comment} />
+            <EditCommentForm
+              comment={comment}
+              showEditForm={showEditForm}
+              setShowEditForm={setShowEditForm}
+            />
 
             {/* <div className="submittedUser">{comment.user}</div> 
       <div className="submittedComment">{comment.text}</div>  */}
@@ -84,7 +88,7 @@ const StoryDetails = () => {
               X
             </button>
             <button
-              className="editButton"
+              className="Button"
               onClick={() => handleEdit(comment)}
               type="button"
             >
@@ -113,7 +117,7 @@ const StoryDetails = () => {
               <img className="storyImage" src={storyDetails.image} />{' '}
               {storyDetails.text}
             </p>
-            {comment}
+            <div className="allComments">{comment}</div>
           </div>
 
           {/* {showEditForm && (
@@ -125,20 +129,19 @@ const StoryDetails = () => {
     comment={editingComment}
   />
 )} */}
-          {!editingComment && (
-            <div>
-              <CommentForm
-                comments={comments}
-                handleChange={handleChange}
-                handleSubmit={handleSubmit}
-                getStoryDetails={getStoryDetails}
-              />
-              {/* <h3>{comments.user}</h3>
-                  <p>{comments.text}</p> */}
-            </div>
-          )}
 
-          <Link to="/" className="backDetails">
+          <div>
+            <CommentForm
+              comments={comments}
+              handleChange={handleChange}
+              handleSubmit={handleSubmit}
+              getStoryDetails={getStoryDetails}
+            />
+            {/* <h3>{comments.user}</h3>
+                  <p>{comments.text}</p> */}
+          </div>
+
+          <Link to="/" className="back">
             Back to Home
           </Link>
         </div>

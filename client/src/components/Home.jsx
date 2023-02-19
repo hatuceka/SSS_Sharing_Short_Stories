@@ -54,8 +54,8 @@ const Home = () => {
       />
       {searched && searchResults.length === 0 && (
         <div>
-          <p className="noResult">There is no matching result!</p>
-          <button className="goBack" onClick={handleGoBack}>
+          <p className="noResult">There is no matching result</p>
+          <button className="submit" onClick={handleGoBack}>
             Back to Home
           </button>
         </div>

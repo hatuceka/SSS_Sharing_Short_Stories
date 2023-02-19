@@ -205,13 +205,15 @@ color: rgb(106, 170, 113);
   font-weight: bold;
 }
 
+.comment {
+  display: flex;
+}
 .allComments {
   grid-row: 2 / span 2;
   display: flex;
   justify-content: flex-start;
+  flex-direction: column;
   margin: 10px 0 10px 0;
-  
-  
 }
 .submittedUser {
   border: 2px solid black;
