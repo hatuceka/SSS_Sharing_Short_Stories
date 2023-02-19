@@ -14,13 +14,17 @@
 
 **_Description_**
 
-SSS-Share Your Stories is a public short story sharing platform for kids. The purpose is to provide free content for parents who love to read their children different stories. Anyone can sign here up with an email address and a username. The stories on the website are open to everyone, but only signed users can create, share, and comment.
+SSS-Share Your Stories is a public short story sharing platform for kids. The purpose is to provide free content for parents who love to read their children different stories. Anyone can submit a story or a comment to the story with a username. The stories on the website are open to everyone, and can't be edited. However, comments can be updated or deleted anytime by anyone.
+
+---
+
+![Image](homepage.png)
 
 ---
 
 **_Technologies Used_**
 
-- Mongo
+- Mongo DB
 - Express
 - React
 - Node.js
@@ -35,36 +39,37 @@ SSS-Share Your Stories is a public short story sharing platform for kids. The pu
 The stories should:
 
 1. be appropriate for kids.
-2. have maximum 500 words.
-3. not be a copy of a copyrighted material.
+2. not be a copy of a copyrighted material.
+
+---
+
+![Image](about.png)
+
+---
 
 #### **Rules for The Users**
 
 The users should:
 
-1. be minimum 18 years old.
-2. have all the responsibilities for what they write.
-3. know that this is a free platform, so, no copyright!
+1. have all the responsibilities for what they write.
+2. know that this is a free platform, so, no copyright!
 
 ---
 
-**_Screenshots_**
-![Image](https://thumbs.dreamstime.com/z/blogging-concept-writing-story-book-blog-articles-writer-journalist-copywriter-type-laptop-vector-illustration-workplace-137819850.jpg)
+![Image](create.png)
 
 ---
 
 **_Future Updates_**
 
 - [ ] Like and comment buttons for comments
-- [ ] Agent account option (other than user)
+- [ ] Accounts for users
 - [ ] Category buttons to update stories according to category
 - [ ] Audio and video story options
 
 ---
 
 **_Credits_**
-
-Blog Image: [DuckDuckGo Search](duckduckgo.com)
 
 Project Planning: [Trello](https://trello.com/b/fzKTisxp/project-share-short-stories)
 
