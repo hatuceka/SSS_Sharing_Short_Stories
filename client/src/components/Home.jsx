@@ -55,19 +55,21 @@ const Home = () => {
       {searched && searchResults.length === 0 && (
         <div>
           <p className="noResult">There is no matching result</p>
-          <button className="submit" onClick={handleGoBack}>
+          <button className="goBack" onClick={handleGoBack}>
             Back to Home
           </button>
         </div>
       )}
       {searchResults.length > 0 && (
         <div>
-          <h1>Search Results</h1>
+          <h1 className="result">Search Results</h1>
           <section className="search-results container-grid">
             {searchResults.map((result) => (
               <Link to={`/story/${result._id}`} key={result._id}>
                 <StoryList stories={[result]} />
-                <button onClick={handleGoBack}>Back to Home</button>
+                <button className="goBack" onClick={handleGoBack}>
+                  Back to Home
+                </button>
               </Link>
             ))}
           </section>

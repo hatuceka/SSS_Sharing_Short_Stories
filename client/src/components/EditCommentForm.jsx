@@ -36,6 +36,7 @@ const EditCommentForm = ({ comment, id, showEditForm, setShowEditForm }) => {
           placeholder="User Name"
           type="text"
           id="user"
+          disabled={!showEditForm}
           onChange={handleChange}
           value={updateComment.user}
         />

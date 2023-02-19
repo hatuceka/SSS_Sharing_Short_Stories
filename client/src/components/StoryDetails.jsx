@@ -84,11 +84,15 @@ const StoryDetails = () => {
 
             {/* <div className="submittedUser">{comment.user}</div> 
       <div className="submittedComment">{comment.text}</div>  */}
-            <button onClick={() => handleDelete(comment._id)} type="button">
+            <button
+              className="x"
+              onClick={() => handleDelete(comment._id)}
+              type="button"
+            >
               X
             </button>
             <button
-              className="Button"
+              className="editButton"
               onClick={() => handleEdit(comment)}
               type="button"
             >
@@ -140,10 +144,11 @@ const StoryDetails = () => {
             {/* <h3>{comments.user}</h3>
                   <p>{comments.text}</p> */}
           </div>
-
-          <Link to="/" className="back">
-            Back to Home
-          </Link>
+          <div className="backDiv">
+            <Link className="back" to="/">
+              Back to Home
+            </Link>
+          </div>
         </div>
       )}
     </div>

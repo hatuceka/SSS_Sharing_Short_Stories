@@ -4,7 +4,7 @@ const StoryList = (props) => {
   return (
     <div className="story-grid">
       {props.stories.map((story) => (
-        <Link key={story._id} to={`/story/${story._id}`}>
+        <Link className="titleLink" key={story._id} to={`/story/${story._id}`}>
           <div className="card">
             {/* <Link to={`${story.id}`}> */}
             <img
@@ -12,7 +12,7 @@ const StoryList = (props) => {
               src={story.image}
               alt={story.title}
             />
-            <h3 className="list-title">{story.title}</h3>
+            <h3 className="listTitle">{story.title}</h3>
           </div>
         </Link>
       ))}
